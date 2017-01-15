@@ -42,7 +42,7 @@ Example class:
 
 Example test:
 
-    // SomeClassTest.js
+    // Tests/SomeClassTest.js
 
     const Tester = require('@cyrhla/tester/Tester')
     const SomeClass = require('../SomeClass')
