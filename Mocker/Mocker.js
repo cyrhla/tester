@@ -19,7 +19,7 @@ module.exports = class Mocker
      * Initializes this class with the given options.
      *
      * @param function baseClass
-     * @param array    args      Default empty array
+     * @param mixed[]  args      Default empty array
      *
      * @throws TypeError
      */
