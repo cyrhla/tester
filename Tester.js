@@ -52,13 +52,13 @@ module.exports = class Tester
             throw new TypeError('@param mocker invalid type, must be a function or Mocker.')
         }
 
-        /** @type array */
+        /** @type string[] */
         this._errors = []
 
-        /** @type array */
+        /** @type string[] */
         this._ok = []
 
-        /** @type array */
+        /** @type string[] */
         this._all = []
 
         /** @type object */
@@ -330,7 +330,7 @@ module.exports = class Tester
      * @see Mocker.constructor
      *
      * @param function baseClass
-     * @param array    args      Default empty array
+     * @param mixed[]  args      Default empty array
      *
      * @return object|Mocker
      */
@@ -508,11 +508,11 @@ module.exports = class Tester
      *
      * @see http://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
      *
-     * @param number bytes
-     * @param number decimals  Default 1
-     * @param string separator Default .
-     * @param number kilo      Default 1000
-     * @param array  units     Default [Bytes, KB, MB, GB, TB, PB, EB, ZB, YB]
+     * @param number   bytes
+     * @param number   decimals  Default 1
+     * @param string   separator Default .
+     * @param number   kilo      Default 1000
+     * @param string[] units     Default [Bytes, KB, MB, GB, TB, PB, EB, ZB, YB]
      *
      * @return string
      *
