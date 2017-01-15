@@ -1,0 +1,30 @@
+{
+    "name": "@cyrhla/tester",
+    "version": "0.0.1",
+    "description": "The \"tester\" is a simple JavaScript test module.",
+    "keywords": [ "unit", "test" ],
+    "homepage": "http://www.cyrhla.com",
+    "license": "MIT",
+    "author": {
+        "name": "Krystian Pietruszka",
+        "email": "kpietru@cyrhla.com"
+    },
+    "contributors": [
+        "Community (http://github.com/cyrhla/tester/graphs/contributors)"
+    ],
+    "bugs": {
+        "url": "http://github.com/cyrhla/tester/issues"
+    },
+    "engines": {
+        "node": ">= 7.2.1",
+        "npm": ">= 3.10.10"
+    },
+    "scripts": {
+        "test": "node scripts/test.js"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}
+
