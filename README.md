@@ -76,9 +76,9 @@ API
   - assertType( string: __expected__, mixed: __actual__ ): undefined
   - assertInstanceOf( string: __expected__, mixed: __actual__ ): undefined
   - expectError( string: __errorName__, function: __callback__ ): undefined
-  - createMocker( function: __baseClass__, array: __args__ ): object|Mocker
+  - createMocker( function: __baseClass__, mixed[]: __args__ ): object|Mocker
   - static getBacktrace( object: __error__, number: __back__ = 1 ): string
-  - static formatBytes( number: __bytes__, number: __decimals__ = 1, string: __separator__ = '.', number: __kilo__ = 1000, array: __units__ = [Bytes, KB, MB, GB, TB, PB, EB, ZB, YB] ): string
+  - static formatBytes( number: __bytes__, number: __decimals__ = 1, string: __separator__ = '.', number: __kilo__ = 1000, string[]: __units__ = [Bytes, KB, MB, GB, TB, PB, EB, ZB, YB] ): string
   - static type( mixed: __arg__ ): string
   - static valid( *, *, ... ): mixed
   - static is(*, *, ... ): boolean
