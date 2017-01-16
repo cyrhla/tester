@@ -26,7 +26,7 @@ Install
 Usage
 -----
 
-Example class:
+First, create the class:
 
     // SomeClass.js
 
@@ -40,7 +40,7 @@ Example class:
         // ...
     }
 
-Example test:
+Second, create test:
 
     // Tests/SomeClassTest.js
 
@@ -58,6 +58,26 @@ Example test:
 
         // ...
     }
+
+Third, create the script*:
+
+    // scripts/test.js
+
+    'use strict'
+
+    new (require('@some/module/Tests/SomeClassTest'))()
+
+Fourth, add the following lines to the package.json:
+
+    // ...
+    scripts: {
+        "test": "node scripts/test.js"
+    }
+    // ...
+
+Fifth, execute the command via shell:
+
+    npm test
 
 API
 ---
