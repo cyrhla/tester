@@ -19,7 +19,7 @@ module.exports = class TesterTest extends _Tester
 {
     before()
     {
-        this.beforeAfterTest = 0
+        this.beforeAfterTest = 3
     }
 
     beforeEach()
@@ -216,9 +216,7 @@ module.exports = class TesterTest extends _Tester
 
     testBeforeAfterEachExecute()
     {
-        this.assertSame(0, this.beforeAfterTest)
-        console.log(this.beforeAfterTest)
-        this.assertSame('abc', this.beforeAfterTest)
+        this.assertSame(12, this.beforeAfterTest)
     }
 
     testAssertSameReturnsUndefined()
