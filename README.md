@@ -8,6 +8,8 @@ tester
 - Compatibility:
   - Node (>= 7.2.1)
   - npm (>= 3.10.10)
+- Dependencies:
+  - @see package.json
 - Copyright / Authors:
   - Krystian Pietruszka <kpietru@cyrhla.com>
 - Licenses:
