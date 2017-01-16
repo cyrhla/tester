@@ -110,3 +110,5 @@ References
 
 [1]: http://nodejs.org/api/modules.html
 
+____________________________________________
+[*] Paths should be modified to your module.
