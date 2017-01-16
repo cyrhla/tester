@@ -77,7 +77,7 @@ Fourth, add the following lines to the package.json:
     }
     // ...
 
-Fifth, execute the command via shell:
+Finally, execute the command via shell:
 
     npm test
 
