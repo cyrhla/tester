@@ -219,6 +219,12 @@ module.exports = class TesterTest extends _Tester
         this.assertSame(undefined, obj.afterEach())
     }
 
+    testBeforeAfterEachExecute()
+    {
+        this.assertSame(123, this.beforeTest)
+        this.assertSame('abc', this.beforeEach)
+    }
+
     testAssertSameReturnsUndefined()
     {
         var stopOnError = false,
