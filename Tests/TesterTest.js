@@ -19,22 +19,22 @@ module.exports = class TesterTest extends _Tester
 {
     before()
     {
-        this.before = 123
+        this.beforeTest = 123
     }
 
     after()
     {
-        this.after = 456
+        this.afterTest = 456
     }
 
     beforeEach()
     {
-        this.beforeEach = 'abc'
+        this.beforeEachTest = 'abc'
     }
 
     afterEach()
     {
-        this.afterEatch = 'xyz'
+        this.afterEatchTest = 'xyz'
     }
 
     testConstructorArgumentTypeError()
