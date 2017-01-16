@@ -17,6 +17,26 @@ const Tester = require('../Tester')
  */
 module.exports = class TesterTest extends _Tester
 {
+    before()
+    {
+        this.before = 123
+    }
+
+    after()
+    {
+        this.after = 456
+    }
+
+    beforeEach()
+    {
+        this.beforeEach = 'abc'
+    }
+
+    afterEach()
+    {
+        this.afterEatch = 'xyz'
+    }
+
     testConstructorArgumentTypeError()
     {
         var stopOnError = false,
