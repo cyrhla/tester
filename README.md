@@ -40,7 +40,7 @@ First, create the class:
         // ...
     }
 
-Second, create test:
+Second, create the test:
 
     // Tests/SomeClassTest.js
 
