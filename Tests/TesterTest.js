@@ -19,22 +19,17 @@ module.exports = class TesterTest extends _Tester
 {
     before()
     {
-        this.beforeTest = 123
-    }
-
-    after()
-    {
-        this.afterTest = 456
+        this.beforeAfterTest = 0
     }
 
     beforeEach()
     {
-        this.beforeEachTest = 'abc'
+        this.beforeAfterTest++
     }
 
     afterEach()
     {
-        this.afterEatchTest = 'xyz'
+        this.beforeAfterTest++
     }
 
     testConstructorArgumentTypeError()
@@ -221,8 +216,9 @@ module.exports = class TesterTest extends _Tester
 
     testBeforeAfterEachExecute()
     {
-        this.assertSame(123, this.beforeTest)
-        this.assertSame('abc', this.beforeEach)
+        this.assertSame(0, this.beforeAfterTest)
+        console.log(this.beforeAfterTest)
+        this.assertSame('abc', this.beforeAfterTest)
     }
 
     testAssertSameReturnsUndefined()
