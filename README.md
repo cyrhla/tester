@@ -132,7 +132,7 @@ API
   - static formatBytes( number: __bytes__, number: __decimals__ = 1, string: __separator__ = '.', number: __kilo__ = 1000, string[]: __units__ = [Bytes, KB, MB, GB, TB, PB, EB, ZB, YB] ): string
   - static type( mixed: __arg__ ): string
   - static valid( *, *, ... ): mixed
-  - static is(*, *, ... ): boolean
+  - static is( *, *, ... ): boolean
 
 ### Class Mocker (Mocker/Mocker.js)
 
@@ -143,7 +143,7 @@ API
 
 ### Function is (is.js)
 
-is(*, *, ... ): boolean
+is( *, *, ... ): boolean
 
 ### Function valid (valid.js)
 
