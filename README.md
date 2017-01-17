@@ -125,7 +125,7 @@ API
   - assertSame( mixed: __expected__, mixed: __actual__ ): undefined
   - assertEqual( mixed: __expected__, mixed: __actual__ ): undefined
   - assertType( string: __expected__, mixed: __actual__ ): undefined
-  - assertInstanceOf( string: __expected__, mixed: __actual__ ): undefined
+  - assertInstanceOf( function: __expected__, function|object: __actual__ ): undefined
   - expectError( string: __errorName__, function: __callback__ ): undefined
   - createMocker( function: __baseClass__, mixed[]: __args__ ): object|Mocker
   - static getBacktrace( object: __error__, number: __back__ = 1 ): string
