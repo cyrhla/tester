@@ -36,7 +36,7 @@ First, create the class:
     {
         someMethod(someArgument)
         {
-            return someArgument
+            return someArgument + '...'
         }
 
         // ...
@@ -55,7 +55,7 @@ Second, create the test:
         {
             var obj = new SomeClass()
 
-            this.assertSame('abc', obj.someMethod('abc'))
+            this.assertSame('abc...', obj.someMethod('abc'))
         }
 
         // ...
