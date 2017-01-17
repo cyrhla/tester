@@ -17,8 +17,6 @@ const Tester = require('@cyrhla/tester/Tester')
  * @param mixed arguments
  *
  * @return mixed
- *
- * @throws TypeError
  */
 module.exports = function() {
     return Tester['valid'].apply(Tester['valid'], arguments)
