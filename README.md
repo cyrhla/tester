@@ -136,11 +136,11 @@ API
 
 ### Function is (is.js)
 
-- is(*, *, ... ): boolean
+is(*, *, ... ): boolean
 
 ### Function valid (valid.js)
 
-- valid( *, *, ... ): mixed
+valid( *, *, ... ): mixed
 
 References
 ----------
