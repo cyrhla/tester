@@ -594,7 +594,7 @@ module.exports = class Tester
      *
      * @param mixed arguments
      *
-     * @return mixed
+     * @return mixed Returns the first argument.
      *
      * @throws TypeError
      */
