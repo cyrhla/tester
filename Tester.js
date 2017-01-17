@@ -262,13 +262,22 @@ module.exports = class Tester
      * Reports an error if the actual variable
      * is not an instance of the expected.
      *
-     * @param mixed expected
-     * @param mixed actual
+     * @param function        expected
+     * @param function|object actual
      *
      * @return undefined
+     *
+     * @throws TypeError
      */
     assertInstanceOf(expected, actual)
     {
+        if (typeof expected !== 'function') {
+            throw new TypeError('@param expected invalid type, must be a function.')
+        }
+        if (typeof actual !== 'function' && typeof actual !== 'object') {
+            throw new TypeError('@param actual invalid type, must be a function or object.')
+        }
+
         this._assertionsCounter++
 
         var trace = Tester.getBacktrace(new Error(), 2)
