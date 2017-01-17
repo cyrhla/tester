@@ -371,6 +371,7 @@ module.exports = class TesterTest extends _Tester
         this.assertInstanceOf(Object, Function)
         this.assertInstanceOf(Object, Tester)
         this.assertInstanceOf(Object, Object)
+        this.assertInstanceOf(Object, new Object())
 
         this.assertSame(undefined, obj.assertInstanceOf(Tester, this))
         this.assertSame(undefined, obj.assertInstanceOf(_Tester, Tester))
