@@ -28,6 +28,8 @@ Install
 Usage
 -----
 
+### Tests
+
 First, create the class:
 
     // SomeClass.js
@@ -80,6 +82,20 @@ Fourth, add the following lines to the package.json:
 Finally, execute the command via shell:
 
     npm test
+
+### Typing
+
+    // somefile.js
+
+    const is = require('@cyrhla/tester/is')
+
+    var somefunc = function(arg) {
+        if (is(arg, 'string', 'number')) {
+            // ...
+        }
+        // ...
+    }
+    // ...
 
 API
 ---
