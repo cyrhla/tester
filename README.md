@@ -28,7 +28,7 @@ Install
 Usage
 -----
 
-### Tests
+### Unit tests
 
 First, create the class:
 
@@ -96,6 +96,18 @@ Finally, execute the command via shell:
         // ...
     }
     // ...
+
+### Validation
+
+    // somefile.js
+
+    const valid = require('@cyrhla/tester/valid')
+
+    var somefunc = function(arg) {
+        valid(arg, 'string', 'number')
+
+        // ...
+    }
 
 API
 ---
