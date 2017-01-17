@@ -43,6 +43,9 @@ module.exports = class validTest extends Tester
         this.expectError('TypeError', function() {
             valid('', 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
         })
+        this.expectError('TypeError', function() {
+            valid(Symbol('foo'), 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
+        })
     }
 
     testValidReturnsSame()
