@@ -134,6 +134,14 @@ API
   - static valid( *, *, ... ): mixed
   - static is(*, *, ... ): boolean
 
+### Function is (is.js)
+
+- is(*, *, ... ): boolean
+
+### Function valid (valid.js)
+
+- valid( *, *, ... ): mixed
+
 References
 ----------
 
