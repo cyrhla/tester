@@ -274,7 +274,7 @@ module.exports = class Tester
         if (typeof expected !== 'function') {
             throw new TypeError('@param expected invalid type, must be a function.')
         }
-        if (typeof actual !== 'function' && typeof actual !== 'object') {
+        if (actual === null || Array.isArray(actual) || typeof actual !== 'function' && typeof actual !== 'object') {
             throw new TypeError('@param actual invalid type, must be a function or object.')
         }
 
