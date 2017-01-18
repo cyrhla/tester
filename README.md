@@ -115,7 +115,7 @@ API
 
 ### Class Tester (Tester.js)
 
-- Tester ( boolean: __stopOnError__, boolean: __showOk__, boolean: __colorize__, null|function|console.log: __output__ )
+- Tester ( boolean: __stopOnError__ = false, boolean: __showOk__ = false, boolean: __colorize__ = true, null|function|console.log: __output__ = console.log, function|Mocker: __mocker__ = Mocker)
   - toString(): string
   - getResultsJson: object
   - before(): undefined
@@ -128,7 +128,7 @@ API
   - assertInstanceOf( function: __expected__, function|object: __actual__ ): undefined
   - expectError( string: __errorName__, function: __callback__ ): undefined
   - createMocker( function: __baseClass__, mixed[]: __args__ ): object|Mocker
-  - static getBacktrace( object: __error__, number: __back__ = 1 ): string
+  - static getBacktrace( Error: __error__, number: __back__ = 1 ): string
   - static formatBytes( number: __bytes__, number: __decimals__ = 1, string: __separator__ = '.', number: __kilo__ = 1000, string[]: __units__ = [Bytes, KB, MB, GB, TB, PB, EB, ZB, YB] ): string
   - static type( mixed: __arg__ ): string
   - static valid( *, *, ... ): mixed
