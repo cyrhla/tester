@@ -358,6 +358,65 @@ module.exports = class TesterTest extends _Tester
         })
     }
 
+    testAssertInstanceOfArgumentTypeError()
+    {
+        var stopOnError = false,
+            showOk      = false,
+            colorize    = true,
+            output      = null
+
+        var obj = new Tester(stopOnError, showOk, colorize, output)
+
+        // Invalid expected.
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf('', Object)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(0, Object)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(null, Object)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(false, Object)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(undefined, Object)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(new Object(), Object)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Symbol('foo'), Object)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf([], Object)
+        })
+
+        // Invalid actual.
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Object, '')
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Object, 0)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Object, null)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Object, false)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Object, undefined)
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Object, Symbol('foo'))
+        })
+        this.expectError('TypeError', function() {
+            obj.assertInstanceOf(Object, [])
+        })
+    }
+
     testAssertInstanceOfReturnsUndefined()
     {
         var stopOnError = false,
@@ -372,6 +431,7 @@ module.exports = class TesterTest extends _Tester
         this.assertInstanceOf(Object, Tester)
         this.assertInstanceOf(Object, Object)
         this.assertInstanceOf(Object, new Object())
+        this.assertInstanceOf(Map, new Map())
 
         this.assertSame(undefined, obj.assertInstanceOf(Tester, this))
         this.assertSame(undefined, obj.assertInstanceOf(_Tester, Tester))
