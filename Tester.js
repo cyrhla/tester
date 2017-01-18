@@ -13,8 +13,6 @@ const Mocker = require('@cyrhla/tester/Mocker/Mocker')
  * The Tester is a simple JavaScript test class.
  *
  * @author Krystian Pietruszka <kpietru@cyrhla.com>
- *
- * @throws TypeError
  */
 module.exports = class Tester
 {
