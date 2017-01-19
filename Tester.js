@@ -471,20 +471,25 @@ module.exports = class Tester
     /**
      * Gets the backtrace.
      *
-     * @param Error  error
-     * @param number back
+     * @param Error       error
+     * @param null|number back
      *
      * @return string
      *
      * @throws Error If no stack specified.
      */
-    static getBacktrace(error, back = 1)
+    static getBacktrace(error, back = null)
     {
         Tester.valid(error, Error)
-        Tester.valid(back, 'number')
+        Tester.valid(back, 'null', 'number')
 
         var stack = error.stack
-            stack = stack.split('\n')
+
+        if (back === null) {
+            return stack
+        }
+
+        stack = stack.split('\n')
 
         if (stack[back]) {
             return stack[back].trim()
