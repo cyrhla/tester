@@ -24,8 +24,6 @@ module.exports = class Tester
      * @param boolean                   colorize    Default true
      * @param null|function|console.log output      Default console.log
      * @param function|Mocker           mocker      Default Mocker
-     *
-     * @throws TypeError
      */
     constructor(
         stopOnError = false,
@@ -34,21 +32,11 @@ module.exports = class Tester
         output      = console.log,
         mocker      = Mocker
     ) {
-        if (typeof stopOnError !== 'boolean') {
-            throw new TypeError('@param stopOnError invalid type, must be a boolean.')
-        }
-        if (typeof showOk !== 'boolean') {
-            throw new TypeError('@param showOk invalid type, must be a boolean.')
-        }
-        if (typeof colorize !== 'boolean') {
-            throw new TypeError('@param colorize invalid type, must be a boolean.')
-        }
-        if (typeof output !== 'function' && output !== null) {
-            throw new TypeError('@param output invalid type, must be a null, function or console.log.')
-        }
-        if (typeof mocker !== 'function') {
-            throw new TypeError('@param mocker invalid type, must be a function or Mocker.')
-        }
+        Tester.valid(stopOnError, 'boolean')
+        Tester.valid(showOk, 'boolean')
+        Tester.valid(colorize, 'boolean')
+        Tester.valid(output, 'null', 'function')
+        Tester.valid(mocker, 'function')
 
         /** @type string[] */
         this._errors = []
@@ -153,17 +141,18 @@ module.exports = class Tester
      */
     assertSame(expected, actual)
     {
+        Tester.valid(expected, 'mixed')
+        Tester.valid(actual, 'mixed')
+
         this._assertionsCounter++
 
         var trace = Tester.getBacktrace(new Error(), 2)
 
         if (
-            typeof expected === 'object' &&
-            typeof actual === 'object'   &&
-            expected !== null            &&
-            actual !== null ||
-            Array.isArray(expected) &&
-            Array.isArray(actual)
+            Tester.is(expected, 'object') &&
+            Tester.is(actual, 'object') ||
+            Tester.is(expected, 'array') &&
+            Tester.is(actual, 'array')
         ) {
             expected = JSON.stringify({
                 keys:   Object.keys(expected).sort(),
@@ -173,7 +162,12 @@ module.exports = class Tester
                 keys:   Object.keys(actual).sort(),
                 values: Object.values(actual).sort()
             })
-        } else if (typeof expected === 'function' && typeof actual === 'function') {
+        } else if (
+            Tester.is(expected, 'function') &&
+            Tester.is(actual, 'function') ||
+            Tester.is(expected, 'regexp') &&
+            Tester.is(actual, 'regexp')
+        ) {
             expected = expected.toString()
             actual   = actual.toString()
         }
@@ -198,21 +192,27 @@ module.exports = class Tester
      */
     assertEqual(expected, actual)
     {
+        Tester.valid(expected, 'mixed')
+        Tester.valid(actual, 'mixed')
+
         this._assertionsCounter++
 
         var trace = Tester.getBacktrace(new Error(), 2)
 
         if (
-            typeof expected === 'object' &&
-            typeof actual === 'object'   &&
-            expected !== null            &&
-            actual !== null ||
-            Array.isArray(expected) &&
-            Array.isArray(actual)
+            Tester.is(expected, 'object') &&
+            Tester.is(actual, 'object') ||
+            Tester.is(expected, 'array') &&
+            Tester.is(actual, 'array')
         ) {
             expected = JSON.stringify(Object.keys(expected).sort())
             actual = JSON.stringify(Object.keys(actual).sort())
-        } else if (typeof expected === 'function' && typeof actual === 'function') {
+        } else if (
+            Tester.is(expected, 'function') &&
+            Tester.is(actual, 'function') ||
+            Tester.is(expected, 'regexp') &&
+            Tester.is(actual, 'regexp')
+        ) {
             expected = expected.toString()
             actual   = actual.toString()
         }
@@ -234,20 +234,17 @@ module.exports = class Tester
      * @param mixed  actual
      *
      * @return undefined
-     *
-     * @throws TypeError
      */
     assertType(expected, actual)
     {
-        if (typeof expected !== 'string') {
-            throw new TypeError('@param expected invalid type, must be a string.')
-        }
+        Tester.valid(expected, 'string')
+        Tester.valid(actual, 'mixed')
 
         this._assertionsCounter++
 
         var trace = Tester.getBacktrace(new Error(), 2)
 
-        if (typeof actual !== expected) {
+        if (Tester.type(actual) !== expected) {
             this._errors.push('Error: ' + trace)
             this._all.push('Error: ' + trace)
         } else {
@@ -264,17 +261,11 @@ module.exports = class Tester
      * @param function|object actual
      *
      * @return undefined
-     *
-     * @throws TypeError
      */
     assertInstanceOf(expected, actual)
     {
-        if (typeof expected !== 'function') {
-            throw new TypeError('@param expected invalid type, must be a function.')
-        }
-        if (actual === null || Array.isArray(actual) || typeof actual !== 'function' && typeof actual !== 'object') {
-            throw new TypeError('@param actual invalid type, must be a function or object.')
-        }
+        Tester.valid(expected, 'function')
+        Tester.valid(actual, 'function', 'object')
 
         this._assertionsCounter++
 
@@ -296,17 +287,11 @@ module.exports = class Tester
      * @param function callback
      *
      * @return undefined
-     *
-     * @throws TypeError
      */
     expectError(errorName, callback)
     {
-        if (typeof errorName !== 'string') {
-            throw new TypeError('@param errorName invalid type, must be a string.')
-        }
-        if (typeof callback !== 'function') {
-            throw new TypeError('@param callback invalid type, must be a function.')
-        }
+        Tester.valid(errorName, 'string')
+        Tester.valid(callback, 'function')
 
         this._assertionsCounter++
 
@@ -343,6 +328,9 @@ module.exports = class Tester
      */
     createMocker(baseClass, args = [])
     {
+        Tester.valid(baseClass, 'function')
+        Tester.valid(args, 'array')
+
         return new this._mocker(baseClass, args)
     }
 
@@ -359,7 +347,7 @@ module.exports = class Tester
     {
         var info = this._getInfoFromPackageJson()
 
-        if (typeof this._output === 'function') {
+        if (Tester.is(this._output, 'function')) {
             this._output('################################################')
             this._output(info.label)
             this._output(info.labelDescription)
@@ -395,7 +383,7 @@ module.exports = class Tester
             from:              trace
         }
 
-        if (typeof this._output === 'function') {
+        if (Tester.is(this._output, 'function')) {
             var arr = this._showOk === true ? this._all : this._errors
             for (let value of arr) {
                 if (this._colorize === true) {
@@ -437,7 +425,7 @@ module.exports = class Tester
             if (this._stopOnError === true && this._errors > 0) {
                 break
             }
-            if (typeof this[method] === 'function' && method.indexOf('test') === 0) {
+            if (Tester.is(this[method], 'function') && method.indexOf('test') === 0) {
                 this._testsCounter++
                 this.beforeEach()
                 this[method]()
@@ -488,17 +476,12 @@ module.exports = class Tester
      *
      * @return string
      *
-     * @throws TypeError
-     * @throws Error     If no stack specified.
+     * @throws Error If no stack specified.
      */
     static getBacktrace(error, back = 1)
     {
-        if (typeof error === 'object' && error.constructor.name !== 'Error') {
-            throw new TypeError('@param error invalid type, must be an Error.')
-        }
-        if (typeof back !== 'number') {
-            throw new TypeError('@param back invalid type, must be a number.')
-        }
+        Tester.valid(error, Error)
+        Tester.valid(back, 'number')
 
         var stack = error.stack
             stack = stack.split('\n')
@@ -522,8 +505,6 @@ module.exports = class Tester
      * @param string[] units     Default [Bytes, KB, MB, GB, TB, PB, EB, ZB, YB]
      *
      * @return string
-     *
-     * @throws TypeError
      */
     static formatBytes(
         bytes,
@@ -532,28 +513,18 @@ module.exports = class Tester
         kilo      = 1000,
         units     = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
     ) {
-        if (typeof bytes !== 'number') {
-            throw new TypeError('@param bytes invalid type, must be a number [0-9].')
-        }
-        if (typeof decimals !== 'number') {
-            throw new TypeError('@param decimals invalid type, must be a number [0-9].')
-        }
-        if (typeof separator !== 'string') {
-            throw new TypeError('@param separator invalid type, must be a string.')
-        }
-        if (typeof kilo !== 'number') {
-            throw new TypeError('@param kilo invalid type, must be a number.')
-        }
-        if (!Array.isArray(units)) {
-            throw new TypeError('@param units invalid type, must be an array.')
-        }
+        Tester.valid(bytes, 'number')
+        Tester.valid(decimals, 'number')
+        Tester.valid(separator, 'string')
+        Tester.valid(kilo, 'number')
+        Tester.valid(units, 'array')
 
         for (let unit of units) {
             if (bytes < kilo) {
                 return (bytes + '').split('.').join(separator) + ' ' + unit
             } else {
                 var b = parseFloat(bytes / kilo).toFixed(decimals)
-                // If 1.0 or 5.0000000 or etc.
+                // If 1.0 or 1.0000000 or etc.
                 if (b.match(/\.0+$/)) {
                     bytes = parseFloat(bytes / kilo).toFixed(0)
                 } else {
@@ -632,8 +603,8 @@ module.exports = class Tester
             let argN = arguments[i]
             if (
                 type === argN    ||
-                argN === '*'     ||
                 argN === 'mixed' ||
+                argN === '*'     ||
                 Tester.type(argN) === 'function' && arg0 instanceof argN
             ) {
                 return true
