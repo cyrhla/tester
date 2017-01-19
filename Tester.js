@@ -614,4 +614,3 @@ module.exports = class Tester
         return false
     }
 }
-
