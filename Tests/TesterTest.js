@@ -597,9 +597,6 @@ module.exports = class TesterTest extends _Tester
             Tester.getBacktrace(new Error(), '')
         })
         this.expectError('TypeError', function() {
-            Tester.getBacktrace(new Error(), null)
-        })
-        this.expectError('TypeError', function() {
             Tester.getBacktrace(new Error(), false)
         })
         this.expectError('TypeError', function() {
