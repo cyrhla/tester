@@ -308,13 +308,13 @@ module.exports = class TesterTest extends _Tester
         this.assertType('string', '0')
         this.assertType('string', '')
         this.assertType('number', 1)
-        this.assertType('object', null)
+        this.assertType('null', null)
         this.assertType('boolean', false)
         this.assertType('undefined', undefined)
         this.assertType('object', new Map())
         this.assertType('function', function() {return 1})
         this.assertType('object', {})
-        this.assertType('object', [])
+        this.assertType('array', [])
         this.assertType('symbol', Symbol('foo'))
 
         this.assertSame(undefined, obj.assertType('string', ''))
@@ -568,7 +568,7 @@ module.exports = class TesterTest extends _Tester
             Tester.getBacktrace(Error)
         })
         this.expectError('TypeError', function() {
-            Tester.getBacktrace(new SyntaxError())
+            Tester.getBacktrace(SyntaxError)
         })
         this.expectError('TypeError', function() {
             Tester.getBacktrace('')
@@ -914,4 +914,3 @@ module.exports = class TesterTest extends _Tester
         this.assertSame(false, Tester.is(/^/, 'function', 'object'))
     }
 }
-
