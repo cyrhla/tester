@@ -19,7 +19,7 @@ module.exports = class MockerTest extends Tester
 {
     testConstructorArgumentTypeError()
     {
-        // Invalid stopOnError.
+        // Invalid baseClass.
         this.expectError('TypeError', function() {
             new Mocker('')
         })
@@ -72,6 +72,7 @@ module.exports = class MockerTest extends Tester
         this.assertInstanceOf(Mocker, obj.setProperty(new Object(), new Object()))
         this.assertInstanceOf(Mocker, obj.setProperty(Symbol('foo'), Symbol('foo')))
         this.assertInstanceOf(Mocker, obj.setProperty([], []))
+        this.assertInstanceOf(Mocker, obj.setProperty(undefined, undefined))
     }
 
     testSetMethodReturnsInvokedObject()
@@ -102,6 +103,9 @@ module.exports = class MockerTest extends Tester
         this.assertInstanceOf(Mocker, obj.setMethod([], function() {
             return []
         }))
+        this.assertInstanceOf(Mocker, obj.setMethod(undefined, function() {
+            return undefined
+        }))
     }
 
     testSetMethodArgumentTypeError()
@@ -128,6 +132,9 @@ module.exports = class MockerTest extends Tester
         })
         this.expectError('TypeError', function() {
             obj.setMethod('abc', [])
+        })
+        this.expectError('TypeError', function() {
+            obj.setMethod('abc', undefined)
         })
     }
 
