@@ -41,6 +41,9 @@ module.exports = class MockerTest extends Tester
         this.expectError('TypeError', function() {
             new Mocker(Symbol('foo'))
         })
+        this.expectError('TypeError', function() {
+            new Mocker(undefined)
+        })
 
         // Invalid args.
         this.expectError('TypeError', function() {
@@ -57,6 +60,9 @@ module.exports = class MockerTest extends Tester
         })
         this.expectError('TypeError', function() {
             new Mocker(Object, new Object())
+        })
+        this.expectError('TypeError', function() {
+            new Mocker(Object, undefined)
         })
     }
 
