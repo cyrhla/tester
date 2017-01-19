@@ -882,6 +882,9 @@ module.exports = class TesterTest extends _Tester
         this.expectError('TypeError', function() {
             Tester.valid('', 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
         })
+        this.expectError('TypeError', function() {
+            Tester.valid(undefined, 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
+        })
     }
 
     testValidReturnsSame()
@@ -895,6 +898,7 @@ module.exports = class TesterTest extends _Tester
         this.assertSame(new Object(), Tester.valid(new Object(), 'string', 'boolean', 'function', 'object', 'regexp', 'null', 'array', 'number', 'symbol'))
         this.assertSame([], Tester.valid([], 'string', 'boolean', 'function', 'object', 'regexp', 'null', 'array', 'number', 'symbol'))
         this.assertSame(/^/, Tester.valid(/^/, 'string', 'boolean', 'function', 'object', 'regexp', 'null', 'array', 'number', 'symbol'))
+        this.assertSame(undefined, Tester.valid(undefined, 'string', 'boolean', 'function', 'object', 'regexp', 'null', 'array', 'number', 'symbol', 'undefined'))
     }
 
     testIsReturnsBoolean()
@@ -906,6 +910,8 @@ module.exports = class TesterTest extends _Tester
         this.assertSame(true, Tester.is('', 'boolean', 'array', 'string'))
         this.assertSame(true, Tester.is(new Object(), 'function', 'object', 'string'))
         this.assertSame(true, Tester.is(Symbol('foo'), 'boolean', 'array', 'string', 'symbol'))
+        this.assertSame(true, Tester.is(undefined, 'function', 'undefined', 'string'))
+
         this.assertSame(false, Tester.is(Object, 'boolean', 'string'))
         this.assertSame(false, Tester.is([], 'boolean', 'string'))
         this.assertSame(false, Tester.is(/^/, 'function', 'object'))
