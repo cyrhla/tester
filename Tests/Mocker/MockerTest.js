@@ -61,9 +61,6 @@ module.exports = class MockerTest extends Tester
         this.expectError('TypeError', function() {
             new Mocker(Object, new Object())
         })
-        this.expectError('TypeError', function() {
-            new Mocker(Object, undefined)
-        })
     }
 
     testSetPropertyReturnsInvokedObject()
