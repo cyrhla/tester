@@ -19,7 +19,7 @@ module.exports = class TesterTest extends _Tester
 {
     before()
     {
-        this.beforeAfterTest = 3
+        this.beforeAfterTest = 0
     }
 
     beforeEach()
@@ -30,6 +30,11 @@ module.exports = class TesterTest extends _Tester
     afterEach()
     {
         this.beforeAfterTest++
+    }
+
+    testInstanceOf()
+    {
+        this.assertInstanceOf(Tester, new Tester(true, true, false, null, Object))
     }
 
     testConstructorArgumentTypeError()
@@ -216,7 +221,7 @@ module.exports = class TesterTest extends _Tester
 
     testBeforeAfterEachExecute()
     {
-        this.assertSame(12, this.beforeAfterTest)
+        this.assertSame(11, this.beforeAfterTest)
     }
 
     testAssertSameReturnsUndefined()
