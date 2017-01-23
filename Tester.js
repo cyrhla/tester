@@ -366,7 +366,7 @@ module.exports = class Tester
         var time = end - start
         var formatTime = time > 1000 ? (time / 1000).toFixed(1) + ' seconds' : time + ' miliseconds'
         var memoryBytes = process.memoryUsage().heapTotal
-        var trace = Tester.getBacktrace(new Error(), 2)
+        var trace = Tester.getBacktrace(new Error(), 3)
 
         this._resultsJson = {
             info:              info,
