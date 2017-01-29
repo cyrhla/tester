@@ -8,6 +8,7 @@
 'use strict'
 
 const Mocker = require('@cyrhla/tester/Mocker/Mocker')
+const InvalidTypeError = require('@cyrhla/tester/Error/InvalidTypeError')
 
 /**
  * The Tester is a simple JavaScript test class.
@@ -579,7 +580,7 @@ module.exports = class Tester
      *
      * @return mixed Returns the first argument.
      *
-     * @throws TypeError
+     * @throws InvalidTypeError
      */
     static valid()
     {
@@ -588,7 +589,7 @@ module.exports = class Tester
         }
         var args = Array.prototype.slice.call(arguments)
         var arg = args.shift()
-        throw new TypeError(
+        throw new InvalidTypeError(
             'Invalid type ' + Tester.type(arg) + ', required: ' + args.join(' or ') + '.'
         )
     }
