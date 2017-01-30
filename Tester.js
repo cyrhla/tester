@@ -303,7 +303,7 @@ module.exports = class Tester
             callback()
         } catch(error) {
             expect = true
-            if (error.name !== errorName) {
+            if (error.constructor.name !== errorName) {
                 expect = false
             }
         }
