@@ -19,34 +19,34 @@ module.exports = class validTest extends Tester
 {
     testValidInvalidTypeError()
     {
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(123, 'string', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(0, 'string', 'boolean', 'function', 'object', 'regexp', 'null', 'array', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(null, 'string', 'boolean', 'function', 'object', 'regexp', 'number', 'array', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(false, 'string', 'null', 'function', 'object', 'regexp', 'number', 'array', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(Object, 'string', 'boolean', 'null', 'object', 'regexp', 'number', 'array', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(new Object(), 'string', 'boolean', 'null', 'function', 'regexp', 'number', 'array', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid([], 'string', 'boolean', 'null', 'object', 'regexp', 'number', 'function', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid('', 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(Symbol('foo'), 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array', 'undefined')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             valid(undefined, 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
         })
     }
