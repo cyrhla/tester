@@ -509,7 +509,7 @@ module.exports = class TesterTest extends _Tester
         this.expectError('Error', function() {
             throw new Error('Hi')
         })
-        this.expectError('InvalidTypeError', function() {
+        this.expectError('TypeError', function() {
             throw new TypeError('Hi')
         })
         this.expectError('SyntaxError', function() {
