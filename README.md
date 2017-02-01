@@ -115,7 +115,7 @@ API
 
 ### Class Tester (Tester.js)
 
-- Tester ( boolean: __stopOnError__ = false, boolean: __showOk__ = false, boolean: __colorize__ = true, null|function|console.log: __output__ = console.log, function|Mocker: __mocker__ = Mocker )
+- Tester( boolean: __stopOnError__ = false, boolean: __showOk__ = false, boolean: __colorize__ = true, null|function|console.log: __output__ = console.log, function|Mocker: __mocker__ = Mocker )
   - toString(): string
   - getResultsJson: object
   - before(): undefined
@@ -136,7 +136,7 @@ API
 
 ### Class Mocker (Mocker/Mocker.js)
 
-- Mocker ( function: __baseClass__, mixed[]: __args__ = [])
+- Mocker( function: __baseClass__, mixed[]: __args__ = [])
   - setProperty( mixed: __key__, mixed: __value__ ): self
   - setMethod( mixed: __key__, function: __callback__ ): self
   - compile(): object
