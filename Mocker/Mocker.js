@@ -32,7 +32,7 @@ module.exports = class Mocker
             throw new TypeError('@param args invalid type, must be an array.')
         }
 
-        /** @type object */
+        /** @type function */
         this._baseClass = baseClass
 
         /** @type array */
