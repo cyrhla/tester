@@ -46,108 +46,108 @@ module.exports = class TesterTest extends _Tester
             mocker      = Object
 
         // Invalid stopOnError.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester('', showOk, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(null, showOk, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(0, showOk, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(Object, showOk, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(new Object(), showOk, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(function() {}, showOk, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester([], showOk, colorize, output, mocker)
         })
 
         // Invalid showOk.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, '', colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, null, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, 0, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, Object, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, new Object(), colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, function() {}, colorize, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, [], colorize, output, mocker)
         })
 
         // Invalid colorize.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, '', output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, null, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, 0, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, Object, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, new Object(), output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, function() {}, output, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, [], output, mocker)
         })
 
         // Invalid output.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, '', mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, 0, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, false, mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, new Object(), mocker)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, [], mocker)
         })
 
         // Invalid mocker.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, output, '')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, output, null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, output, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, output, false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, output, new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Tester(stopOnError, showOk, colorize, output, [])
         })
     }
@@ -340,25 +340,25 @@ module.exports = class TesterTest extends _Tester
         var obj = new Tester(stopOnError, showOk, colorize, output)
 
         // Invalid expected.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertType(0, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertType(null, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertType(false, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertType(Object, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertType(new Object(), 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertType(function() {}, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertType([], 0)
         })
     }
@@ -373,51 +373,51 @@ module.exports = class TesterTest extends _Tester
         var obj = new Tester(stopOnError, showOk, colorize, output)
 
         // Invalid expected.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf('', Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(0, Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(null, Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(false, Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(undefined, Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(new Object(), Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Symbol('foo'), Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf([], Object)
         })
 
         // Invalid actual.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Object, '')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Object, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Object, null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Object, false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Object, undefined)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Object, Symbol('foo'))
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.assertInstanceOf(Object, [])
         })
     }
@@ -455,51 +455,51 @@ module.exports = class TesterTest extends _Tester
         var obj = new Tester(stopOnError, showOk, colorize, output)
 
         // Invalid errorName.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError(0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError(null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError(false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError(Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError(new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError(Symbol('abc'))
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError(function() {})
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError([])
         })
 
         // Invalid callback.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError('', '')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError('', 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError('', null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError('', false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError('', new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError('', Symbol('abc'))
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.expectError('', [])
         })
     }
@@ -509,7 +509,7 @@ module.exports = class TesterTest extends _Tester
         this.expectError('Error', function() {
             throw new Error('Hi')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             throw new TypeError('Hi')
         })
         this.expectError('SyntaxError', function() {
@@ -569,48 +569,48 @@ module.exports = class TesterTest extends _Tester
     testBacktraceArgumentTypeError()
     {
         // Invalid error.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(Error)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(SyntaxError)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace('')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace([])
         })
 
         // Invalid back.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(new Error(), '')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(new Error(), false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(new Error(), Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(new Error(), new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.getBacktrace(new Error(), [])
         })
     }
@@ -638,117 +638,117 @@ module.exports = class TesterTest extends _Tester
             units = []
 
         // Invalid bytes.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes('123', decimals, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(null, decimals, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(false, decimals, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(Object, decimals, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(new Object(), decimals, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(function() {}, decimals, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes([], decimals, separator, kilo, units)
         })
 
         // Invalid decimals.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, '123', separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, null, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, false, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, Object, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(new Object(), decimals, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, function() {}, separator, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, [], separator, kilo, units)
         })
 
         // Invalid separator.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, null, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, false, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, Object, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, new Object(), kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, function() {}, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, 123, kilo, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, [], kilo, units)
         })
 
         // Invalid kilo.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, '123', units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, null, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, false, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, Object, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, new Object(), units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, function() {}, units)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, [], units)
         })
 
         // Invalid units.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, kilo, '123')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, kilo, null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, kilo, false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, kilo, Object)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, kilo, new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, kilo, function() {})
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.formatBytes(bytes, decimals, separator, kilo, '123')
         })
     }
@@ -863,31 +863,31 @@ module.exports = class TesterTest extends _Tester
 
     testValidInvalidTypeError()
     {
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid(123, 'string')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid(0, 'string', 'boolean', 'function', 'object', 'regexp', 'null', 'array')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid(null, 'string', 'boolean', 'function', 'object', 'regexp', 'number', 'array')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid(false, 'string', 'null', 'function', 'object', 'regexp', 'number', 'array')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid(Object, 'string', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid(new Object(), 'string', 'boolean', 'null', 'function', 'regexp', 'number', 'array')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid([], 'string', 'boolean', 'null', 'object', 'regexp', 'number', 'function')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid('', 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             Tester.valid(undefined, 'function', 'boolean', 'null', 'object', 'regexp', 'number', 'array')
         })
     }
