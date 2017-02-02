@@ -7,6 +7,8 @@
 
 'use strict'
 
+const InvalidTypeError = require('@cyrhla/tester/Error/InvalidTypeError')
+
 /**
  * The Mocker generates a mock object is a simulated object
  * that mimics the behavior of a real object in controlled ways.
