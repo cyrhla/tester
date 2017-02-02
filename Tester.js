@@ -477,7 +477,7 @@ module.exports = class Tester
      *
      * @return string
      *
-     * @throws Error If no stack specified.
+     * @throws ReferenceError If no stack specified.
      */
     static getBacktrace(error, back = null)
     {
@@ -496,7 +496,7 @@ module.exports = class Tester
             return stack[back].trim()
         }
 
-        throw new Error('No stack specified.')
+        throw new ReferenceError('No stack specified.')
     }
 
     /**
