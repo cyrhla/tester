@@ -37,7 +37,7 @@ module.exports = class TesterTest extends _Tester
         this.assertInstanceOf(Tester, new Tester(true, true, false, null, Object))
     }
 
-    testConstructorArgumentTypeError()
+    testConstructorArgumentInvalidTypeError()
     {
         var stopOnError = false,
             showOk      = false,
@@ -330,7 +330,7 @@ module.exports = class TesterTest extends _Tester
         this.assertSame(undefined, obj.assertType('function', function() {}))
     }
 
-    testAssertTypeArgumentTypeError()
+    testAssertTypeArgumentInvalidTypeError()
     {
         var stopOnError = false,
             showOk      = false,
@@ -363,7 +363,7 @@ module.exports = class TesterTest extends _Tester
         })
     }
 
-    testAssertInstanceOfArgumentTypeError()
+    testAssertInstanceOfArgumentInvalidTypeError()
     {
         var stopOnError = false,
             showOk      = false,
@@ -445,7 +445,7 @@ module.exports = class TesterTest extends _Tester
         this.assertSame(undefined, obj.assertInstanceOf(Number, Tester))
     }
 
-    testExpectErrorArgumentTypeError()
+    testExpectErrorArgumentInvalidTypeError()
     {
         var stopOnError = false,
             showOk      = false,
@@ -566,7 +566,7 @@ module.exports = class TesterTest extends _Tester
         this.assertSame('object', typeof obj._getInfoFromPackageJson())
     }
 
-    testBacktraceArgumentTypeError()
+    testBacktraceArgumentInvalidTypeError()
     {
         // Invalid error.
         this.expectError('InvalidTypeError', function() {
@@ -629,7 +629,7 @@ module.exports = class TesterTest extends _Tester
         this.assertSame('string', typeof Tester.getBacktrace(new Error(), 10))
     }
 
-    testFormatBytesArgumentTypeError()
+    testFormatBytesArgumentInvalidTypeError()
     {
         var bytes = 123,
             decimals = 1,
