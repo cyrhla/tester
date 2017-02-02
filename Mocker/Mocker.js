@@ -21,15 +21,15 @@ module.exports = class Mocker
      * @param function baseClass
      * @param mixed[]  args      Default empty array
      *
-     * @throws TypeError
+     * @throws InvalidTypeError
      */
     constructor(baseClass, args = [])
     {
         if (typeof baseClass !== 'function') {
-            throw new TypeError('@param baseClass invalid type, must be a function.')
+            throw new InvalidTypeError('@param baseClass invalid type, must be a function.')
         }
         if (!Array.isArray(args)) {
-            throw new TypeError('@param args invalid type, must be an array.')
+            throw new InvalidTypeError('@param args invalid type, must be an array.')
         }
 
         /** @type function */
@@ -68,12 +68,12 @@ module.exports = class Mocker
      *
      * @return self The invoked object.
      *
-     * @throws TypeError
+     * @throws InvalidTypeError
      */
     setMethod(key, callback)
     {
         if (typeof callback !== 'function') {
-            throw new TypeError('@param callback invalid type, must be a function.')
+            throw new InvalidTypeError('@param callback invalid type, must be a function.')
         }
 
         this._methods[key] = callback
@@ -105,4 +105,3 @@ module.exports = class Mocker
         return newClass
     }
 }
-
