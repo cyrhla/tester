@@ -17,48 +17,48 @@ const Mocker = require('../../Mocker/Mocker')
  */
 module.exports = class MockerTest extends Tester
 {
-    testConstructorArgumentTypeError()
+    testConstructorArgumentInvalidTypeError()
     {
         // Invalid baseClass.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker('')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker([])
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(Symbol('foo'))
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(undefined)
         })
 
         // Invalid args.
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(Object, '')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(Object, null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(Object, 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(Object, false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             new Mocker(Object, new Object())
         })
     }
@@ -111,32 +111,32 @@ module.exports = class MockerTest extends Tester
         }))
     }
 
-    testSetMethodArgumentTypeError()
+    testSetMethodArgumentInvalidTypeError()
     {
         var obj = new Mocker(Tester)
 
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', '')
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', 0)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', null)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', new Object())
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', false)
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', Symbol('foo'))
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', [])
         })
-        this.expectError('TypeError', function() {
+        this.expectError('InvalidTypeError', function() {
             obj.setMethod('abc', undefined)
         })
     }
@@ -170,4 +170,3 @@ module.exports = class MockerTest extends Tester
         this.assertSame(false, obj.someMethod3())
     }
 }
-
