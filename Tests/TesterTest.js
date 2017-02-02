@@ -615,9 +615,9 @@ module.exports = class TesterTest extends _Tester
         })
     }
 
-    testBacktraceBackError()
+    testBacktraceBackReferenceError()
     {
-        this.expectError('Error', function() {
+        this.expectError('ReferenceError', function() {
             var back = 123
             Tester.getBacktrace(new Error(), back)
         })
