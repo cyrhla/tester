@@ -42,113 +42,92 @@ module.exports = class TesterTest extends _Tester
         var stopOnError = false,
             showOk      = false,
             colorize    = true,
-            output      = null,
-            mocker      = Object
+            output      = null
 
         // Invalid stopOnError.
         this.expectError('InvalidTypeError', function() {
-            new Tester('', showOk, colorize, output, mocker)
+            new Tester('', showOk, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(null, showOk, colorize, output, mocker)
+            new Tester(null, showOk, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(0, showOk, colorize, output, mocker)
+            new Tester(0, showOk, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(Object, showOk, colorize, output, mocker)
+            new Tester(Object, showOk, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(new Object(), showOk, colorize, output, mocker)
+            new Tester(new Object(), showOk, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(function() {}, showOk, colorize, output, mocker)
+            new Tester(function() {}, showOk, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester([], showOk, colorize, output, mocker)
+            new Tester([], showOk, colorize, output)
         })
 
         // Invalid showOk.
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, '', colorize, output, mocker)
+            new Tester(stopOnError, '', colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, null, colorize, output, mocker)
+            new Tester(stopOnError, null, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, 0, colorize, output, mocker)
+            new Tester(stopOnError, 0, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, Object, colorize, output, mocker)
+            new Tester(stopOnError, Object, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, new Object(), colorize, output, mocker)
+            new Tester(stopOnError, new Object(), colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, function() {}, colorize, output, mocker)
+            new Tester(stopOnError, function() {}, colorize, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, [], colorize, output, mocker)
+            new Tester(stopOnError, [], colorize, output)
         })
 
         // Invalid colorize.
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, '', output, mocker)
+            new Tester(stopOnError, showOk, '', output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, null, output, mocker)
+            new Tester(stopOnError, showOk, null, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, 0, output, mocker)
+            new Tester(stopOnError, showOk, 0, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, Object, output, mocker)
+            new Tester(stopOnError, showOk, Object, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, new Object(), output, mocker)
+            new Tester(stopOnError, showOk, new Object(), output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, function() {}, output, mocker)
+            new Tester(stopOnError, showOk, function() {}, output)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, [], output, mocker)
+            new Tester(stopOnError, showOk, [], output)
         })
 
         // Invalid output.
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, '', mocker)
+            new Tester(stopOnError, showOk, colorize, '')
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, 0, mocker)
+            new Tester(stopOnError, showOk, colorize, 0)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, false, mocker)
+            new Tester(stopOnError, showOk, colorize, false)
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, new Object(), mocker)
+            new Tester(stopOnError, showOk, colorize, new Object())
         })
         this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, [], mocker)
-        })
-
-        // Invalid mocker.
-        this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, output, '')
-        })
-        this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, output, null)
-        })
-        this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, output, 0)
-        })
-        this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, output, false)
-        })
-        this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, output, new Object())
-        })
-        this.expectError('InvalidTypeError', function() {
-            new Tester(stopOnError, showOk, colorize, output, [])
+            new Tester(stopOnError, showOk, colorize, [])
         })
     }
 
