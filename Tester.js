@@ -24,20 +24,17 @@ module.exports = class Tester
      * @param boolean                   showOk      Default false
      * @param boolean                   colorize    Default true
      * @param null|function|console.log output      Default console.log
-     * @param function|Mocker           mocker      Default Mocker
      */
     constructor(
         stopOnError = false,
         showOk      = false,
         colorize    = true,
-        output      = console.log,
-        mocker      = Mocker
+        output      = console.log
     ) {
         Tester.valid(stopOnError, 'boolean')
         Tester.valid(showOk, 'boolean')
         Tester.valid(colorize, 'boolean')
         Tester.valid(output, 'null', 'function')
-        Tester.valid(mocker, 'function')
 
         /** @type string[] */
         this._errors = []
@@ -68,9 +65,6 @@ module.exports = class Tester
 
         /** @type null|function|console.log */
         this._output = output
-
-        /** @type function|Mocker */
-        this._mocker = mocker
 
         this._run()
     }
@@ -325,14 +319,14 @@ module.exports = class Tester
      * @param function baseClass
      * @param mixed[]  args      Default empty array
      *
-     * @return object|Mocker
+     * @return Mocker
      */
     createMocker(baseClass, args = [])
     {
         Tester.valid(baseClass, 'function')
         Tester.valid(args, 'array')
 
-        return new this._mocker(baseClass, args)
+        return new Mocker(baseClass, args)
     }
 
     /**
@@ -587,6 +581,7 @@ module.exports = class Tester
         if (Tester['is'].apply(Tester['is'], arguments)) {
             return arguments[0]
         }
+
         var args = Array.prototype.slice.call(arguments)
         var arg = args.shift()
         throw new InvalidTypeError(
