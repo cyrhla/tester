@@ -391,10 +391,6 @@ module.exports = class Tester
             }
 
             var className = this.constructor.name + ':'
-            if (this._colorize === true) {
-                // reverse
-                className = '\x1b[7m' + className + '\x1b[0m'
-            }
 
             this._output(className)
             this._output(' - tests      ' + this._testsCounter)
