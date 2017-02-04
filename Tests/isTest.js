@@ -24,12 +24,18 @@ module.exports = class isTest extends Tester
 
         this.assertSame(true, is(123, 'number'))
         this.assertSame(true, is('', 'boolean', 'array', 'string'))
-        this.assertSame(true, is(Symbol('foo'), 'boolean', 'array', 'string', 'symbol'))
         this.assertSame(true, is(new Object(), 'function', 'object', 'string'))
+        this.assertSame(true, is(Symbol('foo'), 'boolean', 'array', 'string', 'symbol'))
         this.assertSame(true, is(undefined, 'function', 'undefined', 'string'))
 
         this.assertSame(false, is(Object, 'boolean', 'string'))
         this.assertSame(false, is([], 'boolean', 'string'))
         this.assertSame(false, is(/^/, 'function', 'object'))
+
+        this.assertSame(true, is(Map, 'function'))
+        this.assertSame(true, is(new Map(), Map))
+
+        this.assertSame(true, is(NaN, 'number'))
+        this.assertSame(true, is(Infinity, 'number'))
     }
 }
