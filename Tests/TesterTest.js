@@ -213,6 +213,7 @@ module.exports = class TesterTest extends _Tester
         var obj = new Tester(stopOnError, showOk, colorize, output)
 
         this.assertSame(0, 0)
+        this.assertSame(Infinity, Infinity)
         this.assertSame('', '')
         this.assertSame(true, true)
         this.assertSame(null, null)
@@ -252,6 +253,7 @@ module.exports = class TesterTest extends _Tester
         this.assertEqual('', '')
         this.assertEqual(true, 1)
         this.assertEqual(false, 0)
+        this.assertEqual(Infinity, Infinity)
         this.assertEqual(false, '0')
         this.assertEqual(false, '')
         this.assertEqual(null, null)
@@ -292,6 +294,8 @@ module.exports = class TesterTest extends _Tester
         this.assertType('string', '0')
         this.assertType('string', '')
         this.assertType('number', 1)
+        this.assertType('number', Infinity)
+        this.assertType('number', NaN)
         this.assertType('null', null)
         this.assertType('boolean', false)
         this.assertType('undefined', undefined)
@@ -301,12 +305,19 @@ module.exports = class TesterTest extends _Tester
         this.assertType('array', [])
         this.assertType('symbol', Symbol('foo'))
 
+        this.assertSame(undefined, obj.assertType('string', '0'))
         this.assertSame(undefined, obj.assertType('string', ''))
-        this.assertSame(undefined, obj.assertType('object', null))
+        this.assertSame(undefined, obj.assertType('number', 1))
+        this.assertSame(undefined, obj.assertType('number', Infinity))
+        this.assertSame(undefined, obj.assertType('number', NaN))
+        this.assertSame(undefined, obj.assertType('null', null))
         this.assertSame(undefined, obj.assertType('boolean', false))
+        this.assertSame(undefined, obj.assertType('undefined', undefined))
         this.assertSame(undefined, obj.assertType('object', new Map()))
-        this.assertSame(undefined, obj.assertType('object', []))
-        this.assertSame(undefined, obj.assertType('function', function() {}))
+        this.assertSame(undefined, obj.assertType('function', function() {return 1}))
+        this.assertSame(undefined, obj.assertType('object', {}))
+        this.assertSame(undefined, obj.assertType('array', []))
+        this.assertSame(undefined, obj.assertType('symbol', Symbol('foo')))
     }
 
     testAssertTypeArgumentInvalidTypeError()
@@ -902,5 +913,8 @@ module.exports = class TesterTest extends _Tester
 
         this.assertSame(true, Tester.is(Map, 'function'))
         this.assertSame(true, Tester.is(new Map(), Map))
+
+        this.assertSame(true, Tester.is(NaN, 'number'))
+        this.assertSame(true, Tester.is(Infinity, 'number'))
     }
 }
