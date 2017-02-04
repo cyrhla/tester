@@ -899,5 +899,8 @@ module.exports = class TesterTest extends _Tester
         this.assertSame(false, Tester.is(Object, 'boolean', 'string'))
         this.assertSame(false, Tester.is([], 'boolean', 'string'))
         this.assertSame(false, Tester.is(/^/, 'function', 'object'))
+
+        this.assertSame(true, Tester.is(Map, 'function'))
+        this.assertSame(true, Tester.is(new Map(), Map))
     }
 }
