@@ -90,6 +90,7 @@ module.exports = class Mocker
      */
     compile()
     {
+        this._arguments.unshift(this._baseClass)
         var newClass = new (this._baseClass.bind.apply(this._baseClass, this._arguments))
 
         for (let key in this._properties) {
