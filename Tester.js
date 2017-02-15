@@ -581,7 +581,7 @@ module.exports = class Tester
         var args = Array.prototype.slice.call(arguments)
         var arg = args.shift()
         throw new InvalidTypeError(
-            'Invalid type ' + Tester.type(arg) + ', required: ' + args.join(' or ') + '.'
+            'Invalid type ' + Tester.type(arg) + ', required: ' + args.join(' or ').substr(0, 128) + '.'
         )
     }
 
