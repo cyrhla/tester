@@ -5,15 +5,13 @@ tester
 - Version: 0.0.1-dev
 - Technologies:
   - JavaScript
-- Compatibility:
-  - Node (>= 7.2.1)
-  - npm (>= 3.10.10)
 - Copyright / Authors:
   - Krystian Pietruszka <kpietru@cyrhla.com>
 - Licenses:
   - MIT <http://spdx.org/licenses/MIT>
 - Download: <http://github.com/cyrhla/tester/releases>
 - Homepage: <http://www.cyrhla.com>
+- More: package.json
 
 The "tester" is a simple JavaScript test module.
 ________________________________________________
