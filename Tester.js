@@ -275,18 +275,26 @@ module.exports = class Tester
         }
     }
 
+    // to usunąć jak już wszystkie testy będą przepisane na assert /////////////////////////
+    expectError(errorName, callback, index = null)
+    {
+        this.assertError(errorName, callback, index)
+    }
+
     /**
      * Reports an error if inside the tested code no exceptions.
      *
-     * @param string   errorName
-     * @param function callback
+     * @param string      errorName
+     * @param function    callback
+     * @param null|number index
      *
      * @return undefined
      */
-    expectError(errorName, callback)
+    assertError(errorName, callback, index = null)
     {
         Tester.valid(errorName, 'string')
         Tester.valid(callback, 'function')
+        Tester.valid(index, 'null', 'number')
 
         this._assertionsCounter++
 
@@ -303,6 +311,7 @@ module.exports = class Tester
         }
 
         if (expect === false) {
+            trace = index !== null ? trace + ' [index:' + index + ']' : trace
             this._errors.push('Error: ' + trace)
             this._all.push('Error: ' + trace)
         } else {
