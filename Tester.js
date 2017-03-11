@@ -299,6 +299,7 @@ module.exports = class Tester
         this._assertionsCounter++
 
         var trace = Tester.getBacktrace(new Error(), 2)
+        trace = index !== null ? trace + ' [index:' + index + ']' : trace
 
         var expect = false
         try {
@@ -311,7 +312,6 @@ module.exports = class Tester
         }
 
         if (expect === false) {
-            trace = index !== null ? trace + ' [index:' + index + ']' : trace
             this._errors.push('Error: ' + trace)
             this._all.push('Error: ' + trace)
         } else {
