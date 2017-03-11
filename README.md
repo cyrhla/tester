@@ -132,7 +132,7 @@ API
 
 ### Class Mocker (Mocker/Mocker.js)
 
-- Mocker( function: __baseClass__, mixed[]: __args__ = [])
+- Mocker( function: __baseClass__, mixed[]: __args__ = [] )
   - setProperty( mixed: __key__, mixed: __value__ ): self
   - setMethod( mixed: __key__, function: __callback__ ): self
   - compile(): object
