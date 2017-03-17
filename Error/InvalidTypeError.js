@@ -1,3 +1,4 @@
+
 /**
  * @package @cyrhla/tester
  * @license MIT
@@ -14,4 +15,9 @@
  */
 module.exports = class InvalidTypeError extends TypeError
 {
+    constructor(message)
+    {
+        super(message)
+        super.name = this.constructor.name
+    }
 }
