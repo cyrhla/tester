@@ -611,7 +611,11 @@ module.exports = class Tester
                 type === argN    ||
                 argN === 'mixed' ||
                 argN === '*'     ||
-                Tester.type(argN) === 'function' && arg0 instanceof argN
+                Tester.type(argN) === 'function' && (
+                    arg0 instanceof argN ||
+                    // Why?
+                    Tester.type(arg0) === 'object' && arg0.constructor.name === argN.name
+                )
             ) {
                 return true
             }
