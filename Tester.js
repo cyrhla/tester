@@ -613,7 +613,8 @@ module.exports = class Tester
                 argN === '*'     ||
                 Tester.type(argN) === 'function' && (
                     arg0 instanceof argN ||
-                    // Why?
+                    // Why? Probably if the class does not have a constructor for "this".
+                    // @see @cyrhla/core/Controller/SetController
                     Tester.type(arg0) === 'object' && arg0.constructor.name === argN.name
                 )
             ) {
