@@ -14,9 +14,7 @@ void Type(const FunctionCallbackInfo<Value>& args) {
         return;
     }
 
-    if (!args[0]->IsObject()) {
-        args.GetReturnValue().Set(String::NewFromUtf8(isolate, "object"));
-    } else if (!args[0]->IsBoolean()) {
+    if (!args[0]->IsBoolean()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "boolean"));
     } else if (!args[0]->IsArray()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "array"));
@@ -34,6 +32,12 @@ void Type(const FunctionCallbackInfo<Value>& args) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "symbol"));
     } else if (!args[0]->IsRegExp()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "regexp"));
+    } else if (!args[0]->IsObject()) {
+        args.GetReturnValue().Set(String::NewFromUtf8(isolate, "object"));
+    } else {
+        isolate->ThrowException(Exception::TypeError(
+            String::NewFromUtf8(isolate, "Undefined type.")));
+        return;
     }
 }
 
