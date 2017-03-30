@@ -15,43 +15,25 @@ void Type(const FunctionCallbackInfo<Value>& args) {
     }
 
     if (!args[0]->IsObject()) {
-        Local<String> t = String::NewFromUtf8(isolate, "object");
-    }
-
-    if (!args[0]->IsBoolean()) {
-        Local<String> t = String::NewFromUtf8(isolate, "boolean");
-    }
-
-    if (!args[0]->IsArray()) {
-        Local<String> t = String::NewFromUtf8(isolate, "array");
-    }
-
-    if (!args[0]->IsString()) {
-        Local<String> t = String::NewFromUtf8(isolate, "string");
-    }
-
-    if (!args[0]->IsNumber()) {
-        Local<String> t = String::NewFromUtf8(isolate, "number");
-    }
-
-    if (!args[0]->IsFunction()) {
-        Local<String> t = String::NewFromUtf8(isolate, "function");
-    }
-
-    if (!args[0]->IsNull()) {
-        Local<String> t = String::NewFromUtf8(isolate, "null");
-    }
-
-    if (!args[0]->IsUndefined()) {
-        Local<String> t = String::NewFromUtf8(isolate, "undefined");
-    }
-
-    if (!args[0]->IsSymbol()) {
-        Local<String> t = String::NewFromUtf8(isolate, "symbol");
-    }
-
-    if (!args[0]->IsRegExp()) {
-        Local<String> t = String::NewFromUtf8(isolate, "regexp");
+        Local<String> ta = String::NewFromUtf8(isolate, "object");
+    } else if (!args[0]->IsBoolean()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "boolean");
+    } else if (!args[0]->IsArray()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "array");
+    } else if (!args[0]->IsString()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "string");
+    } else if (!args[0]->IsNumber()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "number");
+    } else if (!args[0]->IsFunction()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "function");
+    } else if (!args[0]->IsNull()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "null");
+    } else if (!args[0]->IsUndefined()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "undefined");
+    } else if (!args[0]->IsSymbol()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "symbol");
+    } else if (!args[0]->IsRegExp()) {
+        Local<String> ta = String::NewFromUtf8(isolate, "regexp");
     }
 
     args.GetReturnValue().Set(t); 
@@ -59,6 +41,6 @@ void Type(const FunctionCallbackInfo<Value>& args) {
 
 void Init(Local <Object> exports, Local <Object> module) { 
     NODE_SET_METHOD(module, "exports", Type); 
-} 
+}
 
 NODE_MODULE(type, Init)
