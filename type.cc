@@ -21,7 +21,7 @@ void Type(const FunctionCallbackInfo<Value>& args) {
 
     for (int i = 0; i < args.Length(); i++) {
         Local<Value> argN = args[i];
-        if (strcmp(string,"mixed") == 0) {}
+        if (strcmp(args[i], "mixed") == 0) {}
     }
 
     if (args[0]->IsBoolean()) {
