@@ -22,7 +22,7 @@ void Type(const FunctionCallbackInfo<Value>& args) {
     for (int i = 0; i < args.Length(); i++) {
         Local<Value> argN = args[i];
         string m = 'mixed';
-        if (argN === m) {}
+        if (argN == m) {}
     }
 
     if (args[0]->IsBoolean()) {
