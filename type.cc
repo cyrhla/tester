@@ -14,25 +14,25 @@ void Type(const FunctionCallbackInfo<Value>& args) {
         return;
     }
 
-    if (!args[0]->IsBoolean()) {
+    if (args[0]->IsBoolean()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "boolean"));
-    } else if (!args[0]->IsArray()) {
+    } else if (args[0]->IsArray()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "array"));
-    } else if (!args[0]->IsString()) {
+    } else if (args[0]->IsString()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "string"));
-    } else if (!args[0]->IsNumber()) {
+    } else if (args[0]->IsNumber()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "number"));
-    } else if (!args[0]->IsFunction()) {
+    } else if (args[0]->IsFunction()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "function"));
-    } else if (!args[0]->IsNull()) {
+    } else if (args[0]->IsNull()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "null"));
-    } else if (!args[0]->IsUndefined()) {
+    } else if (args[0]->IsUndefined()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "undefined"));
-    } else if (!args[0]->IsSymbol()) {
+    } else if (args[0]->IsSymbol()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "symbol"));
-    } else if (!args[0]->IsRegExp()) {
+    } else if (args[0]->IsRegExp()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "regexp"));
-    } else if (!args[0]->IsObject()) {
+    } else if (args[0]->IsObject()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "object"));
     } else {
         isolate->ThrowException(Exception::TypeError(
