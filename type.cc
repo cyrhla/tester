@@ -14,6 +14,15 @@ void Type(const FunctionCallbackInfo<Value>& args) {
         return;
     }
 
+    //Local<Object> data = args.Data().As<Object>();
+
+    Local<Value> arg0 = args[0];
+    Local <Value> type = type(arg0);
+
+    for (int i = 0; i < args.Length(); i++) {
+        Local<Value> argN = args[i];
+    }
+
     if (args[0]->IsBoolean()) {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "boolean"));
     } else if (args[0]->IsArray()) {
