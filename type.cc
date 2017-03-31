@@ -5,6 +5,8 @@
 using namespace v8;
 using namespace std;
 
+// https://v8docs.nodesource.com/node-7.4/dc/d0a/classv8_1_1_value.html#abfee0d12e50e0499ce0e3eac2612b3a2
+
 void Type(const FunctionCallbackInfo<Value>& args) {
     Isolate* isolate = args.GetIsolate();
 
