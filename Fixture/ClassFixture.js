@@ -12,7 +12,7 @@
  *
  * @author Krystian Pietruszka <kpietru@cyrhla.com>
  */
-module.exports = class classFixture
+module.exports = class ClassFixture
 {
     /**
      * Initializes this class with the given options.
